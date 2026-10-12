@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ffffff">
-  <title>البطاقة الرقمية</title>
+  <title>البطاقة الرقمية - نسخة تجريبية</title>
   <meta property="og:title" content="البطاقة الرقمية">
   <meta property="og:image" content="logo.jpg">
 
@@ -39,7 +39,8 @@
 
     button {
       font: inherit;
-      cursor: default;
+      cursor: pointer;
+      border: none;
     }
 
     .mobile-container {
@@ -51,8 +52,11 @@
       flex-direction: column;
       background: var(--page-bg);
       overflow: hidden;
+      padding-top: 46px;
+      padding-bottom: 66px;
     }
 
+    /* Header */
     .top-bar {
       min-height: 46px;
       display: flex;
@@ -61,6 +65,13 @@
       padding: 3px 15px;
       background: #fff;
       border-bottom: 1px solid var(--line);
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 420px;
+      z-index: 1200;
     }
 
     .sys-logo-img {
@@ -108,6 +119,206 @@
       line-height: 1;
     }
 
+    /* User Dropdown */
+    .dropdown-menu {
+      position: absolute;
+      top: 55px;
+      left: 15px;
+      width: 300px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      padding: 10px 0;
+      direction: rtl;
+    }
+
+    .dropdown-menu.active { display: flex; }
+
+    .dropdown-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px;
+    }
+
+    .dropdown-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .dropdown-profile-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #222;
+    }
+
+    .dropdown-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: #777;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: #eaeaea;
+      border: none;
+      margin: 5px 0;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      cursor: pointer;
+      color: #333;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .dropdown-item:active { background: #f5f5f5; }
+    .dropdown-item i { font-size: 18px; color: #666; }
+
+    /* Search */
+    .search-dropdown {
+      position: absolute;
+      top: 55px;
+      left: 15px;
+      width: 260px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.15);
+      display: none;
+      align-items: center;
+      padding: 10px 15px;
+      z-index: 1000;
+      direction: rtl;
+    }
+
+    .search-dropdown.active { display: flex; }
+
+    .search-input-wrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .search-input-wrapper input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      width: 100%;
+      padding: 0 10px;
+      color: #333;
+      background: transparent;
+    }
+
+    .search-input-wrapper input::placeholder { color: #888; }
+    .search-icon-inside { color: #555; font-size: 16px; }
+    .search-caret { color: #555; font-size: 12px; }
+
+    /* Notifications */
+    .notif-dropdown {
+      position: absolute;
+      top: 55px;
+      left: 10px;
+      width: 320px;
+      max-width: 95vw;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    .notif-dropdown.active { display: flex; }
+
+    .notif-header {
+      padding: 15px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      color: #111;
+      background: #fff;
+      border-bottom: 2px solid #eaeaea;
+    }
+
+    .notif-list {
+      max-height: 400px;
+      overflow-y: auto;
+      background: #e8f4fa;
+    }
+
+    .notif-item {
+      display: flex;
+      padding: 15px;
+      gap: 12px;
+      border-bottom: 1px solid #d1e8f5;
+    }
+
+    .notif-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ccc;
+      flex-shrink: 0;
+    }
+
+    .notif-avatar-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: #999;
+      flex-shrink: 0;
+    }
+
+    .notif-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notif-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 3px;
+    }
+
+    .notif-desc {
+      font-size: 13px;
+      font-weight: 600;
+      color: #444;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .notif-time {
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* Download Banner */
     .download-banner {
       min-height: 44px;
       display: flex;
@@ -146,6 +357,7 @@
       white-space: nowrap;
     }
 
+    /* Card Area */
     .card-area {
       flex: 1;
       padding: 12px 11px 16px;
@@ -157,7 +369,7 @@
       overflow: hidden;
       background: #fff;
       border-radius: 18px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 2px rgba(0,0,0,.05);
     }
 
     .id-card {
@@ -165,7 +377,7 @@
       overflow: hidden;
       color: #fff;
       background: var(--blue);
-      padding-bottom: 15px;
+      padding-bottom: 0;
     }
 
     .card-header-section {
@@ -192,7 +404,6 @@
       overflow: hidden;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -200,7 +411,7 @@
     .student-info {
       min-height: 143px;
       display: grid;
-      grid-template-columns: 80px minmax(0, 1fr);
+      grid-template-columns: 80px minmax(0,1fr);
       align-items: start;
       gap: 13px;
       padding: 15px 14px 9px;
@@ -237,22 +448,21 @@
 
     .student-name {
       margin-bottom: 6px;
-      font-size: clamp(20px, 6vw, 25px);
+      font-size: clamp(20px,6vw,25px);
       font-weight: 800;
       line-height: 1.3;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
     }
 
     .student-details {
-      font-size: clamp(14px, 4.3vw, 17px);
+      font-size: clamp(14px,4.3vw,17px);
       font-weight: 600;
       line-height: 1.7;
-      opacity: 0.97;
+      opacity: .97;
     }
 
     .numbers-section {
       min-height: 181px;
-      padding: 43px 16px 7px;
+      padding: 43px 16px 48px;
       text-align: center;
     }
 
@@ -261,29 +471,35 @@
     .live-time {
       font-weight: 800;
       line-height: 1.25;
-      letter-spacing: 0;
       direction: ltr;
     }
 
     .id-number {
       margin-bottom: 12px;
-      font-size: clamp(25px, 7vw, 33px);
+      font-size: clamp(25px,7vw,33px);
     }
 
     .live-date {
       margin-bottom: 12px;
-      font-size: clamp(25px, 7vw, 33px);
+      font-size: clamp(25px,7vw,33px);
     }
 
     .live-time {
-      font-size: clamp(28px, 8vw, 38px);
+      font-size: clamp(28px,8vw,38px);
     }
 
     .card-footer-section {
       height: 31px;
-      background: var(--blue-deep);
+      background: #307ef1;
     }
 
+    /* White Box */
+    .card-bottom-white {
+      height: 90px;
+      background: #fff;
+    }
+
+    /* Bottom Navigation */
     .bottom-nav {
       min-height: 66px;
       display: flex;
@@ -292,6 +508,14 @@
       padding: 5px 13px;
       background: #fff;
       border-top: 1px solid var(--line);
+      margin-top: auto;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 420px;
+      z-index: 1100;
     }
 
     .nav-item {
@@ -299,151 +523,326 @@
       height: 52px;
       display: grid;
       place-items: center;
-      border: 0;
       color: var(--nav-blue);
       background: transparent;
       font-size: 28px;
+      text-decoration: none;
     }
 
-    .nav-item.active {
-      color: #636363;
-    }
+    .nav-item.active { color: #636363; }
 
     @media (min-width: 421px) {
-      body {
-        background: #d6d6d6;
-      }
-
+      body { background: #d6d6d6; }
       .mobile-container {
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 0 30px rgba(0,0,0,.08);
       }
     }
 
     @media (max-width: 350px) {
       .student-info {
-        grid-template-columns: 72px minmax(0, 1fr);
+        grid-template-columns: 72px minmax(0,1fr);
         gap: 10px;
         padding-inline: 11px;
       }
-
       .student-photo-container,
-      .student-photo {
-        width: 72px;
-      }
+      .student-photo { width: 72px; }
+      .student-photo { height: 96px; }
+      .numbers-section { padding-top: 43px; }
+    }
 
-      .student-photo {
-        height: 96px;
-      }
-
-      .numbers-section {
-        min-height: 181px;
-        padding-top: 43px;
-      }
+    /* Short Gray Scroll Space */
+    body::after {
+      content: "";
+      display: block;
+      height: 100px;
+      background: var(--page-bg);
     }
   </style>
 </head>
+
 <body>
-  <main class="mobile-container">
-    <header class="top-bar" aria-label="شريط الأدوات">
-      <img src="sys_logo.png" alt="شعار المنصة" class="sys-logo-img">
+<main class="mobile-container">
 
-      <div class="top-icons" aria-label="أدوات المنصة">
-        <button class="icon-circle" type="button" aria-label="القائمة المنسدلة">
-          <i class="fas fa-caret-down" aria-hidden="true"></i>
-        </button>
-        <button class="icon-circle" type="button" aria-label="بحث">
-          <i class="fas fa-search" aria-hidden="true"></i>
-        </button>
-        <button class="icon-circle" type="button" aria-label="الإشعارات">
-          <i class="fas fa-bell" aria-hidden="true"></i>
-          <span class="notification-badge" aria-label="9 إشعارات أو أكثر">9+</span>
-        </button>
-      </div>
-    </header>
+  <!-- Fixed Header -->
+  <header class="top-bar" aria-label="شريط الأدوات">
+    <img src="sys_logo.png" alt="شعار المنصة" class="sys-logo-img">
 
-    <section class="download-banner" aria-label="تحميل التطبيق">
-      <div class="download-text">
-        <i class="fab fa-android" aria-hidden="true"></i>
-        <span>حمل التطبيق الآن</span>
-      </div>
-      <button class="download-btn" type="button">أضغط هنا</button>
-    </section>
+    <div class="top-icons">
 
-    <section class="card-area">
-      <article class="full-card-container" aria-label="البطاقة الرقمية">
-        <div class="id-card">
-          <div class="card-header-section">
-            <img src="logo.jpg" alt="شعار المعهد" class="card-header-logo">
-            <span class="card-header-text">إدارة ونظم المعلومات بالمصرية للعلوم والتكنولوجيا</span>
+      <button class="icon-circle" id="dropdownBtn" onclick="toggleDropdown()">
+        <i class="fas fa-caret-down"></i>
+      </button>
+
+      <div class="dropdown-menu" id="userDropdown">
+        <div class="dropdown-profile">
+          <img src="personal-photo.jpeg" alt="Profile" class="dropdown-avatar">
+          <div class="dropdown-profile-text">
+            <span class="dropdown-name">احمد محمد عبد النبي مختار</span>
+            <span class="dropdown-sub">اطلع على ملفك الشخصي</span>
           </div>
-
-          <div class="student-info">
-            <div class="student-photo-container">
-              <img src="personal-photo.jpg" alt="الصورة الشخصية للطالب" class="student-photo">
-              <div class="academic-year">2025-2026</div>
-            </div>
-
-            <div class="text-info">
-              <div class="student-name">اسلام خالد عبدالله محمد</div>
-              <div class="student-details">23-0221916559<br>نظم معلومات، فرقة ثالثة</div>
-            </div>
-          </div>
-
-          <div class="numbers-section">
-            <div class="id-number">ID: 30304122402219</div>
-            <div class="live-date" id="dateDisplay" aria-label="التاريخ الحالي"></div>
-            <div class="live-time" id="timeDisplay" aria-label="الوقت الحالي"></div>
-          </div>
-
         </div>
-      </article>
-    </section>
 
-    <nav class="bottom-nav" aria-label="التنقل السفلي">
-      <button class="nav-item active" type="button" aria-label="الرئيسية">
-        <i class="fas fa-home" aria-hidden="true"></i>
-      </button>
-      <button class="nav-item" type="button" aria-label="المستخدمون">
-        <i class="fas fa-users" aria-hidden="true"></i>
-      </button>
-      <button class="nav-item" type="button" aria-label="التنبيهات">
-        <i class="fas fa-bell" aria-hidden="true"></i>
-      </button>
-      <button class="nav-item" type="button" aria-label="القائمة">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-      </button>
-    </nav>
-  </main>
+        <hr class="dropdown-divider">
 
-  <script>
-    function getCairoDateParts() {
-      const parts = new Intl.DateTimeFormat("en-GB", {
-        timeZone: "Africa/Cairo",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false
-      }).formatToParts(new Date());
+        <a href="#" class="dropdown-item">
+          <span>المساعدة والدعم</span>
+          <i class="far fa-question-circle"></i>
+        </a>
 
-      return parts.reduce(function (result, part) {
-        if (part.type !== "literal") {
-          result[part.type] = part.value;
-        }
-        return result;
-      }, {});
+        <a href="#" class="dropdown-item">
+          <span>الوضع المظلم</span>
+          <i class="fas fa-moon"></i>
+        </a>
+
+        <hr class="dropdown-divider">
+
+        <a href="#" class="dropdown-item">
+          <span>اللغة</span>
+          <i class="fas fa-globe"></i>
+        </a>
+
+        <a href="#" class="dropdown-item">
+          <span>تسجيل الخروج</span>
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+
+      <!-- Search -->
+      <button class="icon-circle" id="searchBtn" onclick="toggleSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+
+      <div class="search-dropdown" id="searchDropdown">
+        <div class="search-input-wrapper">
+          <i class="fas fa-search search-icon-inside"></i>
+          <input type="text" placeholder="بحث فى السيستم">
+          <i class="fas fa-caret-down search-caret"></i>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <button class="icon-circle" id="notifBtn" onclick="toggleNotif()">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge">9+</span>
+      </button>
+
+      <div class="notif-dropdown" id="notifDropdown">
+        <div class="notif-header">الإشعارات</div>
+
+        <div class="notif-list">
+          <div class="notif-item">
+            <img src="personal-photo.jpeg" alt="صورة" class="notif-avatar">
+            <div class="notif-content">
+              <div class="notif-title">تصريح جديد من</div>
+              <div class="notif-desc">اداره ونظم المعلومات بالمصرية للعلوم والتكنولوجيا ساعات معتمده</div>
+              <div class="notif-time">5 أشهر</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <img src="logo.jpg" alt="صورة" class="notif-avatar">
+            <div class="notif-content">
+              <div class="notif-title">محتوى علمي جديد من</div>
+              <div class="notif-desc">412 - الإحصاء التطبيقي - محاضرة</div>
+              <div class="notif-time">5 أشهر</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <div class="notif-avatar-icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="notif-content">
+              <div class="notif-title">لقد تم تأكيد الدفع من قبل الحسابات</div>
+              <div class="notif-desc"></div>
+              <div class="notif-time">5 أشهر</div>
+            </div>
+          </div>
+
+          <div class="notif-item">
+            <img src="personal-photo.jpeg" alt="صورة" class="notif-avatar">
+            <div class="notif-content">
+              <div class="notif-title">محتوى علمي جديد من</div>
+              <div class="notif-desc">S14 - البنية التحتية لتكنولوجيا المعلو... محاضرة محاضرة</div>
+              <div class="notif-time">5 أشهر</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Download Banner -->
+  <section class="download-banner">
+    <div class="download-text">
+      <i class="fab fa-android"></i>
+      <span>حمل التطبيق الآن</span>
+    </div>
+    <button class="download-btn" onclick="window.location.href='offline.html'">
+      أضغط هنا
+    </button>
+  </section>
+
+  <!-- Card Area -->
+  <section class="card-area">
+    <article class="full-card-container">
+      <div class="id-card">
+
+        <div class="card-header-section">
+          <img src="logo.jpg" alt="شعار المعهد" class="card-header-logo">
+          <span class="card-header-text">
+            إدارة ونظم المعلومات بالمصرية للعلوم والتكنولوجيا
+          </span>
+        </div>
+
+        <!-- Student Information -->
+        <div class="student-info">
+          <div class="student-photo-container">
+            <img src="personal-photo.jpeg" alt="الصورة الشخصية" class="student-photo">
+            <div class="academic-year">2026-2027</div>
+          </div>
+
+          <div class="text-info">
+            <div class="student-name">
+              احمد محمد عبد النبي مختار
+            </div>
+            <div class="student-details">
+              <span dir="ltr">23-2893215557</span>
+              <br>
+              نظم معلومات، فرقة رابعة
+            </div>
+          </div>
+        </div>
+
+        <!-- ID Date Time -->
+        <div class="numbers-section">
+          <div class="id-number">
+            ID: 30501012428832
+          </div>
+          <div class="live-date" id="dateDisplay"></div>
+          <div class="live-time" id="timeDisplay"></div>
+        </div>
+
+        <div class="card-footer-section"></div>
+      </div>
+
+      <div class="card-bottom-white"></div>
+    </article>
+  </section>
+
+  <!-- Fixed Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active">
+      <i class="fas fa-home"></i>
+    </a>
+    <a href="works.html" class="nav-item">
+      <i class="fas fa-users"></i>
+    </a>
+    <a href="notifications.html" class="nav-item">
+      <i class="fas fa-bell"></i>
+    </a>
+    <a href="more.html" class="nav-item">
+      <i class="fas fa-bars"></i>
+    </a>
+  </nav>
+
+</main>
+
+<script>
+function getCairoDateParts() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Cairo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  }).formatToParts(new Date());
+
+  return parts.reduce(function(result, part) {
+    if (part.type !== "literal") {
+      result[part.type] = part.value;
     }
+    return result;
+  }, {});
+}
 
-    function updateClock() {
-      const date = getCairoDateParts();
-      document.getElementById("dateDisplay").textContent = date.year + "-" + date.month + "-" + date.day;
-      document.getElementById("timeDisplay").textContent = date.hour + ":" + date.minute + ":" + date.second;
-    }
+function updateClock() {
+  const date = getCairoDateParts();
 
-    updateClock();
-    window.setInterval(updateClock, 1000);
-  </script>
+  document.getElementById("dateDisplay").textContent =
+    date.year + "-" + date.month + "-" + date.day;
+
+  document.getElementById("timeDisplay").textContent =
+    date.hour + ":" + date.minute + ":" + date.second;
+}
+
+updateClock();
+window.setInterval(updateClock, 1000);
+
+// Dropdown Logic
+function closeAllDropdowns() {
+  const userDrop = document.getElementById("userDropdown");
+  const searchDrop = document.getElementById("searchDropdown");
+  const notifDrop = document.getElementById("notifDropdown");
+
+  if(userDrop) userDrop.classList.remove("active");
+  if(searchDrop) searchDrop.classList.remove("active");
+  if(notifDrop) notifDrop.classList.remove("active");
+}
+
+function toggleDropdown() {
+  const drop = document.getElementById("userDropdown");
+  const isActive = drop.classList.contains("active");
+
+  closeAllDropdowns();
+  if(!isActive) drop.classList.add("active");
+}
+
+function toggleSearch() {
+  const drop = document.getElementById("searchDropdown");
+  const isActive = drop.classList.contains("active");
+
+  closeAllDropdowns();
+  if(!isActive) drop.classList.add("active");
+}
+
+function toggleNotif() {
+  const drop = document.getElementById("notifDropdown");
+  const isActive = drop.classList.contains("active");
+
+  closeAllDropdowns();
+  if(!isActive) drop.classList.add("active");
+}
+
+document.addEventListener("click", function(event) {
+  const userBtn = document.getElementById("dropdownBtn");
+  const searchBtn = document.getElementById("searchBtn");
+  const notifBtn = document.getElementById("notifBtn");
+
+  const userDrop = document.getElementById("userDropdown");
+  const searchDrop = document.getElementById("searchDropdown");
+  const notifDrop = document.getElementById("notifDropdown");
+
+  let clickedInsideDrop = false;
+
+  if(userDrop && userDrop.contains(event.target)) clickedInsideDrop = true;
+  if(searchDrop && searchDrop.contains(event.target)) clickedInsideDrop = true;
+  if(notifDrop && notifDrop.contains(event.target)) clickedInsideDrop = true;
+
+  let clickedBtn = false;
+
+  if(userBtn && userBtn.contains(event.target)) clickedBtn = true;
+  if(searchBtn && searchBtn.contains(event.target)) clickedBtn = true;
+  if(notifBtn && notifBtn.contains(event.target)) clickedBtn = true;
+
+  if(!clickedInsideDrop && !clickedBtn) {
+    closeAllDropdowns();
+  }
+});
+</script>
 </body>
 </html>
